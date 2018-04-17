@@ -5,7 +5,13 @@ import re
 from functools import reduce
 
 # BNF
-# s_expression      := value
+# atom              := symbol
+#                    | number
+#                    | string
+# symbol            := 'atom
+# number            := (+|-)+[0-9]\.[0-9]
+# string            := ".*"
+# s_expression      := atom
 #                    | ()
 #                    | (expression)
 # s_expression_list := s_expression..
@@ -89,10 +95,10 @@ def run():
     print('-----------')
     print('')
     while True:
-        print('> ', end = '')
+        print('> ', end='')
         out = s_expression(input())
         print(out)
 
+
 if __name__ == '__main__':
     run()
-

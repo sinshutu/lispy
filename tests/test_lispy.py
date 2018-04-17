@@ -4,6 +4,7 @@
 import lispy
 import unittest
 
+
 class TestSequenceFunctions(unittest.TestCase):
     def setUp(self):
         pass
@@ -19,11 +20,10 @@ class TestSequenceFunctions(unittest.TestCase):
         source = '()'
         self.assertEqual('nil', lispy.s_expression(source))
 
-
     def test_expression_list(self):
         source = '1 1 (+ 1 1)'
-        self.assertEqual(['1', '1', '(+ 1 1)'], lispy.s_expression_list(source))
-
+        self.assertEqual(['1', '1', '(+ 1 1)'],
+                         lispy.s_expression_list(source))
 
     def test_expression_calc(self):
         source = '(+ 1 (+ 1 1))'
@@ -38,7 +38,6 @@ class TestSequenceFunctions(unittest.TestCase):
         source = '(/ 1 (- 5 10))'
         self.assertEqual(- 0.2, lispy.s_expression(source))
         # self.assertEqual('1 / 5', lispy.s_expression(source))
-
 
     def test_calc(self):
         self.assertEqual(6, lispy.calc('+', [1, 2, 3]))
